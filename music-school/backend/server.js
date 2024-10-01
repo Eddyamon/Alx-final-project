@@ -21,6 +21,10 @@ mongoose.connect(process.env.MONGODB_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log(err));
 
+  // Routes
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req, res) => {
   res.send('Backend is running');
 });
